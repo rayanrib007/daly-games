@@ -4,7 +4,8 @@ import { IGamesDataProtocol } from "@/utils/interfaces/IGames";
 async function getDalyGames() {
   try {
     const res = await fetch(
-      `${process.env.NEXT_API_URL}/next-api/?api=game_day`
+      `${process.env.NEXT_API_URL}/next-api/?api=game_day`,
+      { next: { revalidate: 320 } }
     );
     return res.json();
   } catch (error) {
