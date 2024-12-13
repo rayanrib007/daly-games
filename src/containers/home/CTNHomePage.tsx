@@ -1,4 +1,5 @@
 import { CContainerMainAfterMenu } from "@/components/general/CContainerMainAfterMenu";
+import CInputSearchGames from "@/components/uiLib/inputs/CInputSearchGames";
 import { IGamesDataProtocol } from "@/utils/interfaces/IGames";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,6 +38,7 @@ export default function CTNHomePage({
             </div>
           </section>
         </Link>
+        <CInputSearchGames placeholder="Procurando algum jogo?..." />
       </CContainerMainAfterMenu>
     </main>
   );
