@@ -1,4 +1,5 @@
 import { CContainerMainAfterMenu } from "@/components/general/CContainerMainAfterMenu";
+import CGameCard from "@/components/home/CGameCard";
 import CInputSearchGames from "@/components/uiLib/inputs/CInputSearchGames";
 import { IGamesDataProtocol } from "@/utils/interfaces/IGames";
 import Image from "next/image";
@@ -7,8 +8,10 @@ import { BsArrowRightSquare } from "react-icons/bs";
 
 export default function CTNHomePage({
   dalyGamesData,
+  gamesList,
 }: {
   dalyGamesData: IGamesDataProtocol;
+  gamesList: IGamesDataProtocol[];
 }) {
   return (
     <main className="w-full">
@@ -25,7 +28,6 @@ export default function CTNHomePage({
                 </p>
                 <BsArrowRightSquare size={24} color="#FFF" />
               </div>
-
               <Image
                 src={dalyGamesData.image_url}
                 alt={dalyGamesData.title}
@@ -39,6 +41,12 @@ export default function CTNHomePage({
           </section>
         </Link>
         <CInputSearchGames placeholder="Procurando algum jogo?..." />
+        <h2 className="text-lg font-bold mt-8 mb-5">Jogos para conhecer</h2>
+        <section className="grid gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {gamesList.map((game) => (
+            <CGameCard key={game.id} game={game} />
+          ))}
+        </section>
       </CContainerMainAfterMenu>
     </main>
   );

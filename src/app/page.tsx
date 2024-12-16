@@ -13,8 +13,20 @@ async function getDalyGames() {
   }
 }
 
-export default async function PHome() {
-  const dalyGamesData: IGamesDataProtocol = await getDalyGames();
+async function getGamesData() {
+  try {
+    const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=games`, {
+      next: { revalidate: 320 },
+    });
+    return res.json();
+  } catch (error) {
+    throw new Error("Failed to fetch data daly-games");
+  }
+}
 
-  return <CTNHomePage dalyGamesData={dalyGamesData} />;
+export default async function PHome() {
+  const [dalyGamesData, gamesList]: [IGamesDataProtocol, IGamesDataProtocol[]] =
+    await Promise.all([getDalyGames(), getGamesData()]);
+
+  return <CTNHomePage dalyGamesData={dalyGamesData} gamesList={gamesList} />;
 }
