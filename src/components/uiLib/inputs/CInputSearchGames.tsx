@@ -14,7 +14,7 @@ export default function CInputSearchGames({
   function handleSearch(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (inputValue === "") return;
-    router.push(`game/search/${inputValue}`);
+    router.push(`/game/search/${inputValue}`);
   }
 
   return (
