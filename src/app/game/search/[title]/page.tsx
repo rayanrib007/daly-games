@@ -17,8 +17,8 @@ export default async function PGameSearch({
 }: {
   params: Promise<{ title: string }>;
 }) {
-  const { title } = await params;
-  const gamesDataList: IGamesDataProtocol[] = await getData(title);
+  const decodeTitle = decodeURI((await params).title);
+  const gamesDataList: IGamesDataProtocol[] = await getData(decodeTitle);
 
   return <CTNGameSearch gamesDataList={gamesDataList} />;
 }
