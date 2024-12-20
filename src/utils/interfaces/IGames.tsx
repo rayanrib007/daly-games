@@ -3,7 +3,7 @@ export interface IGamesDataProtocol {
   title: string;
   description: string;
   image_url: string;
-  platForms: string[];
+  platforms: string[];
   categories: string[];
   release: string;
 }

@@ -1,5 +1,5 @@
 import { CContainerMainAfterMenu } from "@/components/general/CContainerMainAfterMenu";
-import CGameCard from "@/components/home/CGameCard";
+import CGameCard from "@/components/general/CGameCard";
 import CInputSearchGames from "@/components/uiLib/inputs/CInputSearchGames";
 import { IGamesDataProtocol } from "@/utils/interfaces/IGames";
 
