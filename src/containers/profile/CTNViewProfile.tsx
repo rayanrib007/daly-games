@@ -2,6 +2,7 @@ import { CContainerMainAfterMenu } from "@/components/general/CContainerMainAfte
 import Image from "next/image";
 import userImage from "../../../public/user.png";
 import { FaShareAlt } from "react-icons/fa";
+import CFavoriteCard from "@/components/general/CFavoriteCard";
 
 export default function CTNViewProfile() {
   return (
@@ -23,6 +24,17 @@ export default function CTNViewProfile() {
             <button className="bg-gray-700 px-4 py-3 rounded-lg">
               <FaShareAlt size={24} color="#FFF" />
             </button>
+          </div>
+        </section>
+        <section className="flex flex-wrap gap-5 flex-col md:flex-row">
+          <div className="flex-grow flex flex-wrap">
+            <CFavoriteCard />
+          </div>
+          <div className="flex-grow flex flex-wrap">
+            <CFavoriteCard />
+          </div>
+          <div className="flex-grow flex flex-wrap">
+            <CFavoriteCard />
           </div>
         </section>
       </CContainerMainAfterMenu>
